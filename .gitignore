@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+build/
+dist/
+.coverage
+htmlcov/
+*.log
+
+# Third-party dataset, re-downloaded via scripts/fetch_dataset.py -- not committed.
+data/

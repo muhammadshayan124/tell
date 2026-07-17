@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tell"
+version = "0.1.0"
+description = "An honest, cross-validated experiment: can documented linguistic and vocal correlates of deception be combined into a signal, and how well does that actually work? Includes a separate, unrelated fact-checking layer. Not a validated lie detector -- see README."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "librosa>=0.10,<1.0",
+    "scikit-learn>=1.4,<2.0",
+    "numpy>=1.26,<3.0",
+    "vaderSentiment>=3.3,<4.0",
+    "click>=8.1,<9.0",
+]
+
+[project.optional-dependencies]
+factcheck = [
+    "anthropic>=0.40,<1.0",
+]
+dev = [
+    "pytest>=8.0,<9.0",
+    "ruff>=0.6,<1.0",
+    "soundfile>=0.12,<1.0",
+]
+
+[project.scripts]
+tell = "tell.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
