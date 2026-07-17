@@ -26,8 +26,8 @@ jobs:
 
       - name: Lint
         run: |
-          ruff check src tests
-          ruff format --check src tests
+          ruff check src scripts tests streamlit_app.py
+          ruff format --check src scripts tests streamlit_app.py
 
       - name: Test
         run: pytest -q
